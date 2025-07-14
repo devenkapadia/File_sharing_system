@@ -1,0 +1,51 @@
+```
+# Virtual environment
+sharing/
+
+# Python bytecode and cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django specific
+*.log
+*.pot
+*.pyc
+*.sqlite3
+media/
+
+# Environment variables and sensitive files
+.env
+.env.local
+.env.*.local
+*.secret
+*.key
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Package manager
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing and coverage
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+.tox/
+.pytest_cache/
+
+# Miscellaneous
+*.swp
+*.bak
+*.tmp
+```
