@@ -62,7 +62,7 @@ All endpoints require authentication via Basic Auth (username and password).
 |----------|--------|-------------|--------------|----------|
 | `/api/files/` | GET | List all files (staff) or owned files (user). Optional `file_id` query param for specific file. | None | List of files or single file JSON |
 | `/api/transfer/` | POST | Transfer file ownership to another user. | `{"file_id": int, "to_user_id": int}` | Success message and file details |
-| `/api/revoke/` | GET | List files the user can revoke (previously transferred). | None | List of revocable files |
+| `/api/revoke/` | GET | List files the user can revoke. | None | List of revocable files |
 | `/api/revoke/` | POST | Revoke file ownership back to original owner. | `{"file_id": int}` | Success message and file details |
 | `/api/transfer/history/` | GET | View transfer history for a file (`file_id` query param) or user’s files. | None | List of transfer history records |
 

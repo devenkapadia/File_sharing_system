@@ -91,7 +91,7 @@ class RevokeView(APIView):
         GET /api/revoke/
         Returns a list of files the authenticated user can revoke (i.e., they originally transferred and have not revoked).
         """
-        # Find files where user was the original transferor and no revoke action exists to them
+        # Find files where user was the original transferor and no revoke action done to them
         transferable_files = File.objects.filter(
             transfer_history__action='TRANSFER',
             transfer_history__from_user=request.user
@@ -119,6 +119,15 @@ class RevokeView(APIView):
                     action='TRANSFER',
                     from_user=request.user
                 ).first()
+                
+                revoked = file.transfer_history.filter(
+                    action='REVOKE',
+                    to_user=request.user
+                ).first()
+                
+                if revoked:
+                    return Response({'error': 'File ownership has not been transferred or already revoked'},
+                                 status=status.HTTP_400_BAD_REQUEST)
                 
                 if not first_transfer:
                     return Response({'error': 'Only the original owner can revoke'},
