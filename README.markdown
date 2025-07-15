@@ -66,43 +66,6 @@ All endpoints require authentication via Basic Auth (username and password).
 | `/api/revoke/` | POST | Revoke file ownership back to original owner. | `{"file_id": int}` | Success message and file details |
 | `/api/transfer/history/` | GET | View transfer history for a file (`file_id` query param) or user’s files. | None | List of transfer history records |
 
-### Example Requests
-- **GET /api/files/**:
-  ```bash
-  curl -u user_a:password123 http://localhost:8000/api/files/
-  ```
-  Response:
-  ```json
-  [
-      {
-          "id": 1,
-          "name": "Property_Document.pdf",
-          "file": "files/Property_Document.pdf",
-          "owner": {"id": 2, "username": "user_a"},
-          "created_at": "2025-07-14T14:00:00Z"
-      },
-      ...
-  ]
-  ```
-
-- **POST /api/transfer/**:
-  ```bash
-  curl -u user_a:password123 -X POST -H "Content-Type: application/json" -d '{"file_id": 1, "to_user_id": 3}' http://localhost:8000/api/transfer/
-  ```
-  Response:
-  ```json
-  {
-      "message": "File transferred successfully",
-      "file": {
-          "id": 1,
-          "name": "Property_Document.pdf",
-          "file": "files/Property_Document.pdf",
-          "owner": {"id": 3, "username": "user_b"},
-          "created_at": "2025-07-14T14:00:00Z"
-      }
-  }
-  ```
-
 ## Usage
 
 ### Admin Interface
