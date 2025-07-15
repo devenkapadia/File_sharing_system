@@ -120,11 +120,18 @@ All endpoints require authentication via Basic Auth (username and password).
 4. Test endpoints and capture screenshots.
 
 ## Screenshots
-- [Users](docs/users.png): List of 4 users in admin interface.
-- [Files](docs/files.png): List of 3 files in admin interface.
-- [Transfer History](docs/transfer_history.png): Transfer and revoke records.
-- [GET /api/getallfiles/](docs/get_all_files.png): List files via API.
-- [POST /api/transfer/](docs/post_transfer.png): Transfer file ownership.
-- [GET /api/revoke/](docs/get_revoke.png): List revocable files.
-- [POST /api/revoke/](docs/post_revoke.png): Revoke file ownership.
-- [GET /api/transfer/history/](docs/get_history.png): View transfer history.
+- [Users](docs/db_state/users.png): List of 4 users in admin interface.
+- [Files](docs/db_state/files.png): List of 3 files in admin interface.
+- [GET /api/files/](docs/APIs/all_files1.png): List files via API of user 1.
+- [GET /api/files/?file_id=1](docs/APIs/file_id.png): Get file based on ID
+- [POST /api/transfer/](docs/APIs/file_transfer.png): Transfer file ownership.
+- [GET /api/files/](docs/APIs/all_files2.png): List files via API of user 2 (After ownership transfer).
+- [GET /api/transfer/history/](docs/APIs/get_history.png): View transfer history with timestamp
+- [GET /api/revoke/](docs/APIs/get_revoke.png): List revocable files.
+- [POST /api/revoke/](docs/APIs/post_revoke.png): Revoke file ownership.
+- [Transfer History](docs/db_state/tranfer_history.png): Transfer and revoke records in the DB.
+
+## Security
+- [](docs/security/auth.png): All the user APIs are secured, Basic Auth is needed for every operation by the user. User can only see his own files, transfer history etc.
+- [](docs/security/forbidden.png): One user is forbidden to see other user's files.
+- [](docs/security/bad_request.png): User cannot revoke ownership of the file which is not transferred or already revoked.
